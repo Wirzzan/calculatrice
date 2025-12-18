@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculatrice API</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="calculator">
+    <h1>Calculatrice</h1>
+
+    <input type="text" id="a" placeholder="Nombre A" />
+    <input type="text" id="b" placeholder="Nombre B" />
+
+    <div class="buttons">
+      <button onclick="calculate('add')">+</button>
+      <button onclick="calculate('sub')">−</button>
+      <button onclick="calculate('mul')">×</button>
+      <button onclick="calculate('div')">÷</button>
+    </div>
+
+    <div class="result">
+      Résultat : <span id="result">—</span>
+    </div>
+
+    <div class="error" id="error"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
