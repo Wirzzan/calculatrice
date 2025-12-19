@@ -1,0 +1,303 @@
+{
+    "info": {
+        "_postman_id": "66bba926-ef61-49cc-bfee-97884d15f629",
+        "name": "Calculatrice",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "24869910"
+    },
+    "item": [
+        {
+            "name": "addition",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "const statusCode = pm.response.code\r",
+                            "\r",
+                            "const reponse = pm.response.json()\r",
+                            "pm.test(\"The response must be JSON\", function () {\r",
+                            "    pm.response.to.be.json\r",
+                            "})\r",
+                            "\r",
+                            "if (statusCode == 200) {\r",
+                            "    pm.test((\"addition valide\"), () => {\r",
+                            "        pm.expect(reponse.result).to.eql(8)\r",
+                            "    })\r",
+                            "}\r",
+                            "\r",
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{tokenAdmin}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"a\": 5,\r\n    \"b\": 3\r\n}\r\n\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/api/calc/add",
+                    "host": [
+                        "{{BASE_URL}}"
+                    ],
+                    "path": [
+                        "api",
+                        "calc",
+                        "add"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "soustraction",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "const statusCode = pm.response.code\r",
+                            "\r",
+                            "const reponse = pm.response.json()\r",
+                            "pm.test(\"The response must be JSON\", function () {\r",
+                            "    pm.response.to.be.json\r",
+                            "})\r",
+                            "\r",
+                            "if (statusCode == 200) {\r",
+                            "    pm.test((\"addition valide\"), () => {\r",
+                            "        pm.expect(reponse.result).to.eql(2)\r",
+                            "    })\r",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{tokenAdmin}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"a\": 5,\r\n    \"b\": 3\r\n}\r\n\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/api/calc/sub",
+                    "host": [
+                        "{{BASE_URL}}"
+                    ],
+                    "path": [
+                        "api",
+                        "calc",
+                        "sub"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "multiplication",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "const statusCode = pm.response.code\r",
+                            "\r",
+                            "const reponse = pm.response.json()\r",
+                            "pm.test(\"The response must be JSON\", function () {\r",
+                            "    pm.response.to.be.json\r",
+                            "})\r",
+                            "\r",
+                            "if (statusCode == 200) {\r",
+                            "    pm.test((\"multiplication valide\"), () => {\r",
+                            "        pm.expect(reponse.result).to.eql(15)\r",
+                            "    })\r",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{tokenAdmin}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"a\": 5,\r\n    \"b\": 3\r\n}\r\n\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/api/calc/mul",
+                    "host": [
+                        "{{BASE_URL}}"
+                    ],
+                    "path": [
+                        "api",
+                        "calc",
+                        "mul"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "division",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "const statusCode = pm.response.code\r",
+                            "\r",
+                            "const reponse = pm.response.json()\r",
+                            "pm.test(\"The response must be JSON\", function () {\r",
+                            "    pm.response.to.be.json\r",
+                            "})\r",
+                            "\r",
+                            "if (statusCode == 200) {\r",
+                            "    pm.test((\"addition valide\"), () => {\r",
+                            "        pm.expect(reponse.result).to.eql(3)\r",
+                            "    })\r",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{tokenAdmin}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"a\": 15,\r\n    \"b\": 5\r\n}\r\n\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/api/calc/div",
+                    "host": [
+                        "{{BASE_URL}}"
+                    ],
+                    "path": [
+                        "api",
+                        "calc",
+                        "div"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "puissance",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "const statusCode = pm.response.code\r",
+                            "\r",
+                            "const reponse = pm.response.json()\r",
+                            "pm.test(\"The response must be JSON\", function () {\r",
+                            "    pm.response.to.be.json\r",
+                            "})\r",
+                            "\r",
+                            "if (statusCode == 200) {\r",
+                            "    pm.test((\"addition valide\"), () => {\r",
+                            "        pm.expect(reponse.result).to.eql(8)\r",
+                            "    })\r",
+                            "}"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{tokenAdmin}}",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"a\": 2,\r\n    \"b\": 3\r\n}\r\n\r\n",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/api/calc/puissance",
+                    "host": [
+                        "{{BASE_URL}}"
+                    ],
+                    "path": [
+                        "api",
+                        "calc",
+                        "puissance"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
+ 

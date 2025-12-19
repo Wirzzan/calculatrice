@@ -1,0 +1,46 @@
+name: Postman workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_and_cypress:
+    runs-on: ubuntu-latest
+
+    steps:
+      #Premiere etape
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      #Deuxième etape
+      - name: prepare node.js
+        uses: actions/setup-node@v3
+
+      #Troisième etape
+      - name: installer packages
+        run: npm install
+
+      - name: Install Newman et htmlextra
+        run: npm install newman -g newman newman-reporter-htmlextra
+
+      #Quatrième etape
+      - name: Lancement du serveur
+        run: |
+          node server.js &
+          SERVER_PID=$!
+          npx wait-on http://localhost:3000
+        
+      #Cinquième etape
+      - name: Run Postman tests
+        run: |
+           newman run ./postman/Calculatrice.postman_collection.json -e ./postman/calculatrice.postman_environment.json -r htmlextra --reporter-htmlextra-export newman-report/report.html
+ 
+ 
+      - name: Upload Postman Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Le rapport postamn
+          path: newman-report/report.html
