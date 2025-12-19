@@ -46,3 +46,10 @@ exports.div = (req, res) => {
 
   res.json({ result: a / b });
 };
+
+exports.puissance = (req, res) => {
+  const { a, b } = req.body;
+ 
+  if (validateNumbers(a, b, res) !== true) return; 
+  res.json({ result: a ** b });
+};

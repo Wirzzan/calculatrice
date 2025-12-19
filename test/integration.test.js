@@ -126,3 +126,31 @@ describe('POST - /api/cal/div', () => {
         expect(res.body.error).toBe("Division by zero")
     })
 })
+
+describe("POST - /api/cal/puissance", () => {
+  test("puissance valide", async () => {
+    const res = await request(app).post("/api/calc/puissance").send({ a: 3, b: 2 });
+ 
+    expect(res.statusCode).toBe(200);
+    expect(res.body.result).toBe(9);
+  });
+ 
+  test("puissance avec un seul chiffre", async () => {
+    const res = await request(app).post("/api/calc/puissance").send({ a: 10 });
+ 
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe("Both numbers a and b are required");
+  });
+ 
+  test("puissance avec un chiffre et un mot", async () => {
+    const res = await request(app)
+      .post("/api/calc/puissance")
+      .send({ a: 10, b: "un" });
+ 
+    expect(res.statusCode).toBe(400);
+    expect(res.body.error).toBe("Both a and b must be valid numbers");
+  });
+ 
+});
+ 
+ 
