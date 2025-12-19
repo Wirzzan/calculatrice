@@ -1,0 +1,33 @@
+name: Tests cypress
+
+on:
+    push:
+        branches: [main]
+    pull_request: 
+        branches: [main]
+
+jobs: 
+    build_and_cypress:
+        runs-on: ubuntu-latest
+
+
+        steps:
+        #Premiere etape
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+        #Deuxième etape
+            - name: prepare node.js
+              uses: actions/setup-node@v3
+
+        #Troisième etape
+            - name: installer packages
+              run: npm install
+
+        #Quatrième etape
+            - name: Lancement du serveur
+              run: |
+                node server.js &
+                SERVER_PID=$!
+        
+        
