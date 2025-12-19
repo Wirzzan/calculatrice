@@ -1,0 +1,19 @@
+name: Dire simplement Bonjour
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    dire_bonjour:
+        runs-on: ubuntu-latest
+
+        steps:
+
+        - name: Checkout repository
+          uses: actions/checkout@v3
+
+        - name: Dire Bonjour
+          run: echo "Bonjour Blandine, Manon et Abdallah"
